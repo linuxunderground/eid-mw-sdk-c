@@ -238,7 +238,7 @@ CK_ULONG Beidsdk_Decode_Photo(CK_FUNCTION_LIST_PTR pFunctions, CK_SESSION_HANDLE
                 data[2].pValue = objid_str;
 
                 if ((label_str != NULL) && (value_str != NULL) && (objid_str != NULL))
-		{
+                {
                     /* now run C_GetAttributeValue a second time to actually retrieve the
                      * data from the object
                      */
@@ -257,13 +257,15 @@ CK_ULONG Beidsdk_Decode_Photo(CK_FUNCTION_LIST_PTR pFunctions, CK_SESSION_HANDLE
                     }
                     */
 #ifdef HAVE_JPEGLIB
-                    printf("Data object with object ID: %s; label: %s; length: %lu\nContents(ASCII art representation):\n", objid_str, label_str, data[1].ulValueLen);
+                    printf("Data object with object ID: %s; label: %s; length: %lu\nContents(ASCII art representation):\n",
+                        objid_str, label_str, data[1].ulValueLen);
                     jpegdump(value_str, data[1].ulValueLen);
 #else
-                    printf("Data object with object ID: %s; label: %s; length: %lu\nContents(hexdump):\n", objid_str, label_str, data[1].ulValueLen);
+                    printf("Data object with object ID: %s; label: %s; length: %lu\nContents(hexdump):\n",
+                        objid_str, label_str, data[1].ulValueLen);
                     hex_dump(value_str, data[1].ulValueLen);
 #endif
-		}
+                }
                 if (label_str != NULL) free(label_str);
                 if (value_str != NULL) free(value_str);
                 if (objid_str != NULL) free(objid_str);
@@ -358,7 +360,7 @@ CK_ULONG beidsdk_GetData()
                     else
                         (pFunctions->C_Finalize)(NULL_PTR);
                 }
-	    }
+            }
         }
         else retVal = CKR_GENERAL_ERROR; /* dlsym failed */
         dlclose(pkcs11Handle);
