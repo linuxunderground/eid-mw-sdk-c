@@ -212,7 +212,6 @@ CK_ULONG Beidsdk_Decode_Photo(CK_FUNCTION_LIST_PTR pFunctions, CK_SESSION_HANDLE
     searchtemplate[1].pValue = (void*)("PHOTO_FILE");
     searchtemplate[1].ulValueLen = strlen("PHOTO_FILE");
 
-
     /* initialize the search for the objects "PHOTO_FILE" */
     retVal = (pFunctions->C_FindObjectsInit)(session_handle, searchtemplate, 2); 
     if (retVal == CKR_OK)
@@ -305,7 +304,6 @@ CK_ULONG beidsdk_GetData()
                 retVal = (pFunctions->C_Initialize)(NULL);
                 if (retVal == CKR_OK)
                 {
-
                     /* retrieve the number of slots (cardreaders) found
                      * set first parameter to CK_FALSE if you also want to find the slots without a card inserted
                      */
