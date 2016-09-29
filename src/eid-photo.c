@@ -248,8 +248,8 @@ void save_photo(char* data, CK_ULONG length)
 #endif
     if (hd != NULL)
     {
-        strcpy(filename,hd);
-        strcat(filename,"/eid-photo.jpg");
+        strncpy(filename,hd,PATH_MAX-15);
+        strncat(filename,"/eid-photo.jpg",14);
         f = fopen(filename, "wb+");
         if (f)
         {
