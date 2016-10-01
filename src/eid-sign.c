@@ -18,14 +18,14 @@
 
 #define PKCS11_LIB "libbeidpkcs11.so.0"
 
-#include "unix.h"
-#include "pkcs11.h"
-
 #include <stdio.h>
 #include <malloc.h>
 #include <dlfcn.h>
 #include <string.h>
+#include <unix.h>
+#include <pkcs11.h>
 
+#include "utils.h"
 
 CK_ULONG beidsdk_sign(CK_CHAR_PTR textToSign);
 
@@ -75,6 +75,7 @@ CK_ULONG beidsdk_sign(CK_CHAR_PTR textToSign)
     CK_BYTE signature[128];
     CK_ULONG signLength = 128;
     /**/
+    char buffer[255];
 
 
     /* open the pkcs11 library */
@@ -150,12 +151,9 @@ CK_ULONG beidsdk_sign(CK_CHAR_PTR textToSign)
                                                         if (retVal == CKR_OK)
                                                         {
                                                             counter = 0;
-                                                            printf("The Signature:\n");
-                                                            while (counter < signLength)
-                                                            {
-                                                                printf("%c", *(signature+counter));
-                                                                counter++;
-                                                            }
+                                                            printf("The Signature (base64):\n");
+                                                            b64_encode(signature,signLength,buffer,255);
+                                                            printf("%s\n",buffer);
                                                         }
                                                     }
                                                 }

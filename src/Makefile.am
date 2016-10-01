@@ -6,6 +6,8 @@ eid_data_SOURCES = eid-data.c
 eid_signmechanisms_SOURCES = eid-signmechanisms.c
 eid_photo_SOURCES = eid-photo.c
 eid_photo_LDADD = @JPEG_LIBS@
-eid_sign_SOURCES = eid-sign.c
+eid_sign_SOURCES = eid-sign.c utils.c utils.h
+eid_sign_LDADD = @SSL_LIBS@
 eid_waitcard_SOURCES = eid-waitcard.c
 
+noinst_HEADERS = utils.h

@@ -9,7 +9,7 @@ AC_PROG_CC
 AC_PROG_INSTALL
 
 
-AC_CHECK_HEADERS([limits.h malloc.h dlfcn.h])
+AC_CHECK_HEADERS([limits.h malloc.h dlfcn.h openssl/bio.h openssl/evp.h], [], [AC_MSG_ERROR([could not find header])])
 
 
 AC_CHECK_LIB(jpeg, jpeg_mem_src, [HAVE_JPEGLIB=1; JPEG_LIBS='-ljpeg'], [HAVE_JPEGLIB=0])
@@ -20,7 +20,7 @@ AC_DEFINE_UNQUOTED([HAVE_JPEGLIB], $HAVE_JPEGLIB, [Define to 1 if you have libjp
 
 AC_SEARCH_LIBS([dlopen], [dl],, [AC_MSG_ERROR([I need a dlopen() implementation])])
 
-
+PKG_CHECK_MODULES(SSL, "openssl", [], [AC_MSG_ERROR([could not find openssl. Install openssl first])])
 PKG_CHECK_MODULES([libbeidpkcs11], [libbeidpkcs11], [], [AC_MSG_ERROR([could not find beidpkcs11. Install eid-mw first])])
 
 
