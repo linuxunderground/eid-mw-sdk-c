@@ -2,7 +2,7 @@ eid-mw-sdk-c is a fork of
 https://github.com/Fedict/eid-mw/tree/master/doc/sdk/examples/C
 
 It's a simple GNU LGPL3 package which aims to show how to use
-the autotools with Fedict C examples.
+the autotools with Fedict C examples and how to use libbeidpkcs11.
 
 Any suggestions or improvements are welcome.
 Send them to vincent.hardy.be@gmail.com
@@ -20,7 +20,7 @@ Homepage:
 
 2. Build examples
 
-Make sure you have eid-mw installed.
+Make sure you have eid-mw and openssl installed.
 
   $ ./configure
   $ make
