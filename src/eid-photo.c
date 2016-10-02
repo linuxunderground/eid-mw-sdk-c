@@ -20,19 +20,22 @@
 
 #define PKCS11_LIB "libbeidpkcs11.so.0"
 
-#include "unix.h"
-#include "pkcs11.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
 #include <dlfcn.h>
 #include <string.h>
 #include <limits.h>
+#include <unix.h>
+#include <pkcs11.h>
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#ifdef HAVE_JPEGLIB
+#include <jpeglib.h>
+#endif
+
 
 CK_ULONG Beidsdk_Decode_Photo(CK_FUNCTION_LIST_PTR pFunctions, CK_SESSION_HANDLE session_handle);
 void save_photo(char* data, CK_ULONG length);
@@ -260,8 +263,6 @@ void save_photo(char* data, CK_ULONG length)
 }
 
 #ifdef HAVE_JPEGLIB
-#include <jpeglib.h>
-
 enum weights
 {
     TOPLEFT,

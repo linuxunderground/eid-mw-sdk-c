@@ -20,13 +20,12 @@
 
 #define PKCS11_LIB "libbeidpkcs11.so.0"
 
-#include "unix.h"
-#include "pkcs11.h"
-
 #include <stdio.h>
 #include <malloc.h>
 #include <dlfcn.h>
 #include <string.h>
+#include <unix.h>
+#include <pkcs11.h>
 
 
 CK_RV Beidsdk_GetObjectValue(CK_FUNCTION_LIST_PTR pFunctions, CK_SESSION_HANDLE session_handle,CK_CHAR_PTR pName,CK_VOID_PTR *ppValue, CK_ULONG_PTR pvalueLen);

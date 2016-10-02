@@ -27,6 +27,7 @@
 
 #include "utils.h"
 
+
 CK_ULONG beidsdk_sign(CK_CHAR_PTR textToSign);
 
 int main()

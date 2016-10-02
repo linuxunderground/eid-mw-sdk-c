@@ -18,13 +18,12 @@
 
 #define PKCS11_LIB "libbeidpkcs11.so.0"
 
-#include "unix.h"
-#include "pkcs11.h"
-
 #include <stdio.h>
 #include <malloc.h>
 #include <dlfcn.h>
 #include <string.h>
+#include <unix.h>
+#include <pkcs11.h>
 
 
 CK_ULONG beidsdk_waitcard(void);
