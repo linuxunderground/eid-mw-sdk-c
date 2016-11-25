@@ -1,5 +1,7 @@
 /*
  * https://github.com/linuxunderground/eid-mw-sdk-c
+ *
+ * Copyright (C) 2011-2012 FedICT.
  * Copyright (C) 2016 Vincent Hardy <vincent.hardy.be@gmail.com>
  *
  * This complete example shows how to read identity data from the card.

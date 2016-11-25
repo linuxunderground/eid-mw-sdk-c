@@ -1,5 +1,7 @@
 /*
  * https://github.com/linuxunderground/eid-mw-sdk-c
+ *
+ * Copyright (C) 2009-2010 FedICT.
  * Copyright (C) 2016 Vincent Hardy <vincent.hardy.be@gmail.com>
  *
  * This is free software; you can redistribute it and/or modify it

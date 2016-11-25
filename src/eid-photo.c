@@ -1,5 +1,7 @@
 /*
  * https://github.com/linuxunderground/eid-mw-sdk-c
+ *
+ * Copyright (C) 2014 FedICT.
  * Copyright (C) 2016 Vincent Hardy <vincent.hardy.be@gmail.com>
  *
  * This complete example shows how to decode identity photo from the card.
