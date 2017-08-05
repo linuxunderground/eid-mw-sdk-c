@@ -1,6 +1,6 @@
 /*
  * https://github.com/linuxunderground/eid-mw-sdk-c
- * Copyright (C) 2016 Vincent Hardy <vincent.hardy.be@gmail.com>
+ * Copyright (C) 2016-2017 Vincent Hardy <vincent.hardy.be@gmail.com>
  *
  * This complete example shows how to read identity data from the card.
  *
@@ -22,5 +22,6 @@
 #define __base64_h__
 
 int b64_encode(const unsigned char* in, int in_len, char *out, int out_len);
+int dumpcert(const void* derdata, int len, char *pemdata, int pem_maxlen);
 
 #endif

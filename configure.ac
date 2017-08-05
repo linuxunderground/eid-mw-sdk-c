@@ -1,4 +1,4 @@
-AC_INIT([eid-mw-sdk-c], [0.2.1_pre1], [vincent.hardy.be@gmail.com], [eid-mw-sdk-c], [http://github.com/linuxunderground/eid-mw-sdk-c])
+AC_INIT([eid-mw-sdk-c], [0.2.1], [vincent.hardy.be@gmail.com], [eid-mw-sdk-c], [http://github.com/linuxunderground/eid-mw-sdk-c])
 AM_INIT_AUTOMAKE([dist-xz])
 
 
@@ -9,7 +9,8 @@ AC_PROG_CC
 AC_PROG_INSTALL
 
 
-AC_CHECK_HEADERS([limits.h malloc.h dlfcn.h openssl/bio.h openssl/evp.h], [], [AC_MSG_ERROR([could not find header])])
+AC_CHECK_HEADERS([limits.h malloc.h dlfcn.h openssl/bio.h openssl/evp.h openssl/x509.h openssl/pem.h openssl/crypto.h],
+  [], [AC_MSG_ERROR([could not find header])])
 
 
 AC_CHECK_LIB(jpeg, jpeg_mem_src, [HAVE_JPEGLIB=1; JPEG_LIBS='-ljpeg'], [HAVE_JPEGLIB=0])
