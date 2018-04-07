@@ -2,7 +2,7 @@
  * https://github.com/linuxunderground/eid-mw-sdk-c
  *
  * Copyright (C) 2014 FedICT.
- * Copyright (C) 2016 Vincent Hardy <vincent.hardy.be@gmail.com>
+ * Copyright (C) 2016-2018 Vincent Hardy <vincent.hardy.be@gmail.com>
  *
  * This complete example shows how to decode identity photo from the card.
  *
@@ -34,17 +34,17 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
-#ifdef HAVE_JPEGLIB
+#if HAVE_JPEGLIB
 #include <jpeglib.h>
 #endif
 
 
 CK_ULONG Beidsdk_Decode_Photo(CK_FUNCTION_LIST_PTR pFunctions, CK_SESSION_HANDLE session_handle);
 void save_photo(char* data, CK_ULONG length);
-#ifdef HAVE_JPEGLIB
+#if HAVE_JPEGLIB
 void jpegdump(char* data, CK_ULONG length);
 #else
-void hex_dump(char* data, CK_ULONG length)
+void hex_dump(char* data, CK_ULONG length);
 #endif
 CK_ULONG beidsdk_GetData(void);
 
@@ -218,7 +218,7 @@ CK_ULONG Beidsdk_Decode_Photo(CK_FUNCTION_LIST_PTR pFunctions, CK_SESSION_HANDLE
                     objid_str[data[2].ulValueLen] = '\0';
 
                     save_photo(value_str,data[1].ulValueLen);
-#ifdef HAVE_JPEGLIB
+#if HAVE_JPEGLIB
                     printf("Data object with object ID: %s; label: %s; length: %lu\nContents(ASCII art representation):\n",
                         objid_str, label_str, data[1].ulValueLen);
                     jpegdump(value_str, data[1].ulValueLen);
@@ -264,7 +264,7 @@ void save_photo(char* data, CK_ULONG length)
     }
 }
 
-#ifdef HAVE_JPEGLIB
+#if HAVE_JPEGLIB
 enum weights
 {
     TOPLEFT,

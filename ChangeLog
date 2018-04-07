@@ -1,3 +1,9 @@
+2018-07-04  vincent Hardy  <vincent.hardy.be@gmail.com>
+
+	Bug fix.
+	jpeg ARG : enable or disable the need for libjpeg.
+
+
 2017-08-05  vincent Hardy  <vincent.hardy.be@gmail.com>
 
 	Add eid-x509 example.

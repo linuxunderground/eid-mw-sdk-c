@@ -1,4 +1,13 @@
-bin_PROGRAMS = eid-data eid-signmechanisms eid-photo eid-sign eid-waitcard eid-x509
+# By default, we always build eid-photo. With libjpeg installed, console
+# output displays an ASCII picture. Without libjpeg, you get an hexadecimal
+# dump.
+# If you don't want to build eid-photo when libjpeg is not intalled,
+# just uncomment the "if" clause below
+
+bin_PROGRAMS = eid-data eid-signmechanisms eid-sign eid-waitcard eid-x509
+#if JPEG
+bin_PROGRAMS += eid-photo
+#endif
 
 AM_CFLAGS = $(libbeidpkcs11_CFLAGS)
 
