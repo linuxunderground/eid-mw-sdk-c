@@ -23,6 +23,7 @@
 #define PKCS11_LIB "libbeidpkcs11.so.0"
 
 #include <stdio.h>
+#include <ctype.h>
 #include <malloc.h>
 #include <dlfcn.h>
 #include <string.h>

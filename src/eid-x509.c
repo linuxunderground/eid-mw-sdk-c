@@ -29,6 +29,7 @@
 #include <pkcs11.h>
 #include <openssl/x509.h>
 #include <openssl/crypto.h>
+#include "utils.h"
 
 
 CK_ULONG beid_X509(void);
