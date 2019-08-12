@@ -1,7 +1,7 @@
 /*
  * https://github.com/linuxunderground/eid-mw-sdk-c
  *
- * Copyright (C) 2017 Vincent Hardy <vincent.hardy.be@gmail.com>
+ * Copyright (C) 2019 Vincent Hardy <vincent.hardy.be@gmail.com>
  *
  * This complete example shows how to decode identity photo from the card.
  *
@@ -272,7 +272,7 @@ void X509Info(CK_BYTE_PTR pValue, CK_ULONG valueLen)
     }
 }
 
-#define X509_MAX_LENGTH 2048
+#define X509_MAX_LENGTH 4096
 
 void beid_PrintValue_PEM(CK_BYTE_PTR pValue, CK_ULONG valueLen)
 {
