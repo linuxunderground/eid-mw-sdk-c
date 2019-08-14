@@ -2,7 +2,7 @@
  * https://github.com/linuxunderground/eid-mw-sdk-c
  *
  * Copyright (C) 2009-2010 FedICT.
- * Copyright (C) 2016 Vincent Hardy <vincent.hardy.be@gmail.com>
+ * Copyright (C) 2016-2019 Vincent Hardy <vincent.hardy.be@gmail.com>
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License version
@@ -75,10 +75,10 @@ CK_ULONG beidsdk_sign(CK_CHAR_PTR textToSign)
 
     /* use the CKM_SHA1_RSA_PKCS mechanism for signing */
     CK_MECHANISM mechanism = {CKM_SHA1_RSA_PKCS, NULL_PTR, 0};
-    CK_BYTE signature[128];
-    CK_ULONG signLength = 128;
+    CK_BYTE signature[512];
+    CK_ULONG signLength;
     /**/
-    char buffer[255];
+    char buffer[800];
 
 
     /* open the pkcs11 library */
@@ -150,13 +150,18 @@ CK_ULONG beidsdk_sign(CK_CHAR_PTR textToSign)
                                                     retVal = (pFunctions->C_SignInit)(session_handle, &mechanism, hKey); 
                                                     if (retVal == CKR_OK)
                                                     {
-                                                        retVal = (pFunctions->C_Sign)(session_handle,textToSign,(CK_ULONG) strlen(textToSign),signature,&signLength);
+                                                        /* get the signature length dynamically */
+                                                        retVal = (pFunctions->C_Sign)(session_handle,NULL,0,NULL,&signLength);
                                                         if (retVal == CKR_OK)
                                                         {
-                                                            counter = 0;
-                                                            printf("The Signature (base64):\n");
-                                                            b64_encode(signature,signLength,buffer,255);
-                                                            printf("%s\n",buffer);
+                                                            retVal = (pFunctions->C_Sign)(session_handle,textToSign,(CK_ULONG) strlen(textToSign),signature,&signLength);
+                                                            if (retVal == CKR_OK)
+                                                            {
+                                                                printf("The Signature (base64):\n");
+                                                                counter = b64_encode(signature,signLength,buffer,800);
+                                                                buffer[counter] = 0;
+                                                                printf("%s\n",buffer);
+                                                            }
                                                         }
                                                     }
                                                 }
