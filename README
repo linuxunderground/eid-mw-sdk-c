@@ -5,7 +5,7 @@ It's a simple GNU LGPL3 package which aims to show how to use
 the autotools with Fedict C examples and how to use libbeidpkcs11.
 
 Any suggestions or improvements are welcome.
-Send them to vincent.hardy.be@gmail.com
+Send them to vincent.hardy@linuxunderground.be
 
 Homepage:
   https://github.com/linuxunderground/eid-mw-sdk-c

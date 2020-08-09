@@ -1,14 +1,19 @@
-2018-07-04  vincent Hardy  <vincent.hardy.be@gmail.com>
+2020-08-09  vincent Hardy  <vincent.hardy@linuxunderground.be>
+
+	eid-mw 5 branch.
+
+
+2018-07-04  vincent Hardy  <vincent.hardy@linuxunderground.be>
 
 	Bug fix.
 	jpeg ARG : enable or disable the need for libjpeg.
 
 
-2017-08-05  vincent Hardy  <vincent.hardy.be@gmail.com>
+2017-08-05  vincent Hardy  <vincent.hardy@linuxunderground.be>
 
 	Add eid-x509 example.
 
 
-2015-08-09  vincent Hardy  <vincent.hardy.be@gmail.com>
+2015-08-09  vincent Hardy  <vincent.hardy@linuxunderground.be>
 
 	Initial version.

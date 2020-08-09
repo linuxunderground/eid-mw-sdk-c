@@ -2,7 +2,7 @@
  * https://github.com/linuxunderground/eid-mw-sdk-c
  *
  * Copyright (C) 2011-2012 FedICT.
- * Copyright (C) 2016 Vincent Hardy <vincent.hardy.be@gmail.com>
+ * Copyright (C) 2020 Vincent Hardy <vincent.hardy@linuxunderground.be>
  *
  * This complete example shows how to read identity data from the card.
  *
@@ -27,8 +27,8 @@
 #include <malloc.h>
 #include <dlfcn.h>
 #include <string.h>
-#include <unix.h>
-#include <pkcs11.h>
+#include <rsaref220/unix.h>
+#include <rsaref220/pkcs11.h>
 
 
 CK_RV Beidsdk_GetObjectValue(CK_FUNCTION_LIST_PTR pFunctions, CK_SESSION_HANDLE session_handle,CK_CHAR_PTR pName,CK_VOID_PTR *ppValue, CK_ULONG_PTR pvalueLen);

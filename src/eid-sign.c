@@ -2,7 +2,7 @@
  * https://github.com/linuxunderground/eid-mw-sdk-c
  *
  * Copyright (C) 2009-2010 FedICT.
- * Copyright (C) 2016-2019 Vincent Hardy <vincent.hardy.be@gmail.com>
+ * Copyright (C) 2016-2020 Vincent Hardy <vincent.hardy@linuxunderground.be>
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License version
@@ -24,8 +24,8 @@
 #include <malloc.h>
 #include <dlfcn.h>
 #include <string.h>
-#include <unix.h>
-#include <pkcs11.h>
+#include <rsaref220/unix.h>
+#include <rsaref220/pkcs11.h>
 
 #include "utils.h"
 

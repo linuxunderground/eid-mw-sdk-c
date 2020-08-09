@@ -2,7 +2,7 @@
  * https://github.com/linuxunderground/eid-mw-sdk-c
  *
  * Copyright (C) 2014 FedICT.
- * Copyright (C) 2016-2018 Vincent Hardy <vincent.hardy.be@gmail.com>
+ * Copyright (C) 2016-2020 Vincent Hardy <vincent.hardy@linuxunderground.be>
  *
  * This complete example shows how to decode identity photo from the card.
  *
@@ -28,8 +28,8 @@
 #include <dlfcn.h>
 #include <string.h>
 #include <limits.h>
-#include <unix.h>
-#include <pkcs11.h>
+#include <rsaref220/unix.h>
+#include <rsaref220/pkcs11.h>
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>

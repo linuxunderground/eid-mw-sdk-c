@@ -1,4 +1,4 @@
-AC_INIT([eid-mw-sdk-c], [0.2.4], [vincent.hardy.be@gmail.com], [eid-mw-sdk-c], [http://github.com/linuxunderground/eid-mw-sdk-c])
+AC_INIT([eid-mw-sdk-c], [0.3.0], [vincent.hardy@linuxunderground.be], [eid-mw-sdk-c], [http://github.com/linuxunderground/eid-mw-sdk-c])
 AM_INIT_AUTOMAKE([dist-xz])
 
 
@@ -28,7 +28,7 @@ AC_DEFINE_UNQUOTED([HAVE_JPEGLIB], $HAVE_JPEGLIB, [Define to 1 if you have libjp
 AC_SEARCH_LIBS([dlopen], [dl],, [AC_MSG_ERROR([I need a dlopen() implementation])])
 
 PKG_CHECK_MODULES(SSL, "openssl", [], [AC_MSG_ERROR([could not find openssl. Install openssl first])])
-PKG_CHECK_MODULES([libbeidpkcs11], [libbeidpkcs11], [], [AC_MSG_ERROR([could not find beidpkcs11. Install eid-mw first])])
+PKG_CHECK_MODULES([libbeidpkcs11], [libbeidpkcs11 > 5], [], [AC_MSG_ERROR([could not find beidpkcs11 > 5. Install eid-mw 5+ first.])])
 
 
 AC_CONFIG_FILES([Makefile src/Makefile])
