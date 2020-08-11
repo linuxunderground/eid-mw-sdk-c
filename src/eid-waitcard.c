@@ -2,7 +2,7 @@
  * https://github.com/linuxunderground/eid-mw-sdk-c
  *
  * Copyright (C) 2009-2010 FedICT.
- * Copyright (C) 2020 Vincent Hardy <vincent.hardy@linuxunderground.be>
+ * Copyright (C) 2016-2020 Vincent Hardy <vincent.hardy@linuxunderground.be>
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License version
@@ -49,7 +49,11 @@ CK_ULONG beidsdk_waitcard()
     CK_SESSION_HANDLE session_handle;
     CK_BBOOL cardInserted = CK_FALSE;
     CK_SLOT_INFO slotinfo;
+    CK_TOKEN_INFO tokeninfo;
     CK_UTF8CHAR slotDescription[65];
+    CK_UTF8CHAR manufacturerID[33];
+    CK_UTF8CHAR label[33];
+    CK_UTF8CHAR serialnumber[17];
     CK_RV retVal = CKR_OK;
 
 
@@ -90,10 +94,34 @@ CK_ULONG beidsdk_waitcard()
                                     {
                                         memcpy(slotDescription, slotinfo.slotDescription, 64);
                                         slotDescription[64] = '\0'; /* make the string null terminated */
-                                        printf("Card found in reader %s \n",slotDescription);
+                                        printf("Card found in reader %s \n\n",slotDescription);
 
                                         /* a card is found in the slot */
                                         cardInserted = CK_TRUE;
+                                        retVal = (pFunctions->C_GetTokenInfo)(slotIds[slotIdx], &tokeninfo);
+                                        if (retVal == CKR_OK)
+                                        {
+                                            memcpy(manufacturerID,tokeninfo.manufacturerID, 32);
+                                            manufacturerID[32] = '\0'; /* make the string null terminated */
+                                            printf("ManufacturerID : %s \n",manufacturerID);
+
+                                            memcpy(label,tokeninfo.label, 32);
+                                            label[32] = '\0';          /* make the string null terminated */
+                                            printf("Label          : %s \n",label);
+
+                                            memcpy(serialnumber,tokeninfo.serialNumber, 16);
+                                            serialnumber[16] = '\0';   /* make the string null terminated */
+                                            printf("Serial number  : %s \n",serialnumber);
+
+                                            switch(tokeninfo.firmwareVersion.major) {
+                                            case 0x17 : printf("Applet version : 1.7\n"); break;
+                                            case 0x18 : printf("Applet version : 1.8\n"); break;
+                                            default : printf("Unsupported applet version!\n");
+                                            }
+
+                                            printf("\n");
+                                        }
+
                                     }
                                 }
 
