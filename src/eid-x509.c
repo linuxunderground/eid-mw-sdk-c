@@ -1,7 +1,7 @@
 /*
  * https://github.com/linuxunderground/eid-mw-sdk-c
  *
- * Copyright (C) 2020 Vincent Hardy <vincent.hardy@linuxunderground.be>
+ * Copyright (C) 2019-2020 Vincent Hardy <vincent.hardy@linuxunderground.be>
  *
  * This complete example shows how to decode identity photo from the card.
  *
