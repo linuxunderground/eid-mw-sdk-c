@@ -1,4 +1,4 @@
-AC_INIT([eid-mw-sdk-c], [0.3.0], [vincent.hardy@linuxunderground.be], [eid-mw-sdk-c], [http://github.com/linuxunderground/eid-mw-sdk-c])
+AC_INIT([eid-mw-sdk-c], [0.3.1], [vincent.hardy@linuxunderground.be], [eid-mw-sdk-c], [http://github.com/linuxunderground/eid-mw-sdk-c])
 AM_INIT_AUTOMAKE([dist-xz])
 
 
