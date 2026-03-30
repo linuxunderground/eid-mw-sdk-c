@@ -13,7 +13,7 @@ Homepage:
 
 1. Get code from git repository
 
-  $ git clone github.com/linuxunderground/eid-mw-sdk-c.git 
+  $ git clone https://github.com/linuxunderground/eid-mw-sdk-c.git
   $ cd eid-mw-sdk-c
   $ autoreconf -i
 
