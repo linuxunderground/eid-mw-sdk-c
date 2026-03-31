@@ -1,13 +1,14 @@
-AC_INIT([eid-mw-sdk-c], [0.3.1], [vincent.hardy@linuxunderground.be], [eid-mw-sdk-c], [http://github.com/linuxunderground/eid-mw-sdk-c])
-AM_INIT_AUTOMAKE([dist-xz])
+AC_INIT([eid-mw-sdk-c], [0.4.0], [vincent.hardy@linuxunderground.be], [eid-mw-sdk-c], [https://github.com/linuxunderground/eid-mw-sdk-c])
+AM_INIT_AUTOMAKE([dist-xz subdir-objects])
 
+AC_CANONICAL_HOST
 
 AC_CONFIG_HEADERS([config.h])
 
 
 AC_PROG_CC
 AC_PROG_INSTALL
-
+PKG_PROG_PKG_CONFIG
 
 AC_CHECK_HEADERS([limits.h malloc.h dlfcn.h openssl/bio.h openssl/evp.h openssl/x509.h openssl/pem.h openssl/crypto.h],
   [], [AC_MSG_ERROR([could not find header])])
@@ -28,7 +29,7 @@ AC_DEFINE_UNQUOTED([HAVE_JPEGLIB], $HAVE_JPEGLIB, [Define to 1 if you have libjp
 AC_SEARCH_LIBS([dlopen], [dl],, [AC_MSG_ERROR([I need a dlopen() implementation])])
 
 PKG_CHECK_MODULES(SSL, "openssl", [], [AC_MSG_ERROR([could not find openssl. Install openssl first])])
-PKG_CHECK_MODULES([libbeidpkcs11], [libbeidpkcs11 > 5], [], [AC_MSG_ERROR([could not find beidpkcs11 > 5. Install eid-mw 5+ first.])])
+PKG_CHECK_MODULES(BEIDPKCS11, [libbeidpkcs11 > 5], [], [AC_MSG_ERROR([could not find beidpkcs11 > 5. Install eid-mw 5+ first.])])
 
 
 AC_CONFIG_FILES([Makefile src/Makefile])
