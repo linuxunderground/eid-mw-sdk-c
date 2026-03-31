@@ -1,3 +1,8 @@
+2026-03-31  vincent Hardy  <vincent.hardy@linuxunderground.be>
+
+	Improvement of configure.ac and src/Makefile.am.
+
+
 2020-08-11  vincent Hardy  <vincent.hardy@linuxunderground.be>
 
 	Add token info to eid-waitcard.
