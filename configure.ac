@@ -1,4 +1,4 @@
-AC_INIT([eid-mw-sdk-c], [0.4.1], [vincent.hardy@linuxunderground.be], [eid-mw-sdk-c], [https://github.com/linuxunderground/eid-mw-sdk-c])
+AC_INIT([eid-mw-sdk-c], [0.4.2], [vincent.hardy@linuxunderground.be], [eid-mw-sdk-c], [https://github.com/linuxunderground/eid-mw-sdk-c])
 AM_INIT_AUTOMAKE([dist-xz subdir-objects])
 
 AC_CANONICAL_HOST
@@ -25,8 +25,12 @@ AM_CONDITIONAL([JPEG], [test x$HAVE_JPEGLIB = x1])
 AC_SUBST([JPEG_LIBS])
 AC_DEFINE_UNQUOTED([HAVE_JPEGLIB], $HAVE_JPEGLIB, [Define to 1 if you have libjpeg installed])
 
-
+save_LIBS="$LIBS"
+LIBS=""
 AC_SEARCH_LIBS([dlopen], [dl],, [AC_MSG_ERROR([I need a dlopen() implementation])])
+DL_LIBS="$LIBS"
+LIBS="$save_LIBS"
+AC_SUBST(DL_LIBS)
 
 PKG_CHECK_MODULES(SSL, "openssl", [], [AC_MSG_ERROR([could not find openssl. Install openssl first])])
 PKG_CHECK_MODULES(BEIDPKCS11, [libbeidpkcs11 > 5], [], [AC_MSG_ERROR([could not find beidpkcs11 > 5. Install eid-mw 5+ first.])])
