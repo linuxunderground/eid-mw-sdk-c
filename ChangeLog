@@ -1,3 +1,8 @@
+2026-04-05  vincent Hardy  <vincent.hardy@linuxunderground.be>
+
+	Improvement of configure.ac and src/Makefile.am (try 3).
+
+
 2026-04-04  vincent Hardy  <vincent.hardy@linuxunderground.be>
 
 	Improvement of src/Makefile.am (second try).
